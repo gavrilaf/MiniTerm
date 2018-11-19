@@ -14,7 +14,7 @@ class ScreenBufferSpec: QuickSpec {
             
             describe("buffer init state") {
                 it("buffer text should contain default prompt") {
-                    expect(subject.text).to(equal(ScreenBuffer.Constant.defaultPrompt))
+                    expect(subject.content).to(equal(ScreenBuffer.Constant.defaultPrompt))
                 }
                 
                 it("current line should be empty") {
@@ -31,7 +31,7 @@ class ScreenBufferSpec: QuickSpec {
                 
                     it("buffer should contain correct text") {
                         let expected = ScreenBuffer.Constant.defaultPrompt + "A"
-                        expect(subject.text).to(equal(expected))
+                        expect(subject.content).to(equal(expected))
                     }
                     
                     it("current line should contain one symbol") {
@@ -46,7 +46,7 @@ class ScreenBufferSpec: QuickSpec {
                     
                     it("buffer should contain correct text") {
                         let expected = ScreenBuffer.Constant.defaultPrompt + "\n" + ScreenBuffer.Constant.defaultPrompt
-                        expect(subject.text).to(equal(expected))
+                        expect(subject.content).to(equal(expected))
                     }
                     
                     it("current line should be empty") {
@@ -61,7 +61,7 @@ class ScreenBufferSpec: QuickSpec {
                     }
                     
                     it("buffer text should contain default prompt") {
-                        expect(subject.text).to(equal(ScreenBuffer.Constant.defaultPrompt))
+                        expect(subject.content).to(equal(ScreenBuffer.Constant.defaultPrompt))
                     }
                     
                     it("current line should be empty") {
@@ -77,7 +77,7 @@ class ScreenBufferSpec: QuickSpec {
                     }
                     
                     it("buffer text should contain default prompt") {
-                        expect(subject.text).to(equal(ScreenBuffer.Constant.defaultPrompt))
+                        expect(subject.content).to(equal(ScreenBuffer.Constant.defaultPrompt))
                     }
                     
                     it("current line should be empty") {
@@ -98,7 +98,7 @@ class ScreenBufferSpec: QuickSpec {
                     
                     it("buffer should contain correct text") {
                         let expected = ScreenBuffer.Constant.defaultPrompt + "AB\n" + ScreenBuffer.Constant.defaultPrompt + "CD"
-                        expect(subject.text).to(equal(expected))
+                        expect(subject.content).to(equal(expected))
                     }
                     
                     it("current line should contain correct text") {

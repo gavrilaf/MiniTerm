@@ -1,23 +1,11 @@
 import Foundation
 
-protocol ScreenBufferDelegate: class {
-    func didBufferUpdate()
-}
-
-
 class ScreenBuffer {
-    
     enum Constant {
         static let defaultPrompt = "> "
     }
     
     var prompt: String
-    
-    weak var delegate: ScreenBufferDelegate?
-    
-    var text: String {
-        return lines.joined(separator: "\n")
-    }
     
     var currentLine: String {
         let s = lines[lastIndex]
@@ -47,5 +35,26 @@ class ScreenBuffer {
     
     private var lastIndex: Int {
         return lines.count - 1
+    }
+}
+
+// MARK: -
+extension ScreenBuffer: ScreenBufferProtocol {
+    var content: String {
+        return lines.joined(separator: "\n")
+    }
+}
+
+extension ScreenBuffer: StreamWriter {
+    func Write(string: String) {
+        lines[lastIndex].append(string)
+    }
+    
+    func Open() {
+        lines.append("")
+    }
+    
+    func Close() {
+        newLine()
     }
 }

@@ -16,31 +16,32 @@ class TerminalViewController: UIViewController {
         super.viewDidLoad()
         
         textView.delegate = self
-        reloadContent()
-        
         textView.becomeFirstResponder()
+        
+        handler = InteractionHandler()
+        
+        handler.updateDelegate = self
+        handler.start()
     }
     
-    private func reloadContent() {
-        textView.text = buffer.text
-    }
-    
-    private let buffer = ScreenBuffer()
+    private var handler: InteractionHandlerProtocol!
 }
 
 extension TerminalViewController: UITextViewDelegate {
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
         if text == "\n" {
-            buffer.newLine()
+            handler.newLine()
         } else if text.count != 0 {
-            buffer.addChar(text)
+            handler.symbol(text)
         } else if range.length == 1 {
-            buffer.delete()
+            handler.delete()
         }
-        
-        reloadContent()
-        
         return false
     }
 }
 
+extension TerminalViewController: ScreenBufferUpdateDelegate {
+    func didScreenUpdate(with buffer: ScreenBufferProtocol) {
+        textView.text = buffer.content
+    }
+}

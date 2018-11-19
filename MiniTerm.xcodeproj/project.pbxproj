@@ -16,6 +16,11 @@
 		46078DC421A1D5BD0084334F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 46078DC221A1D5BD0084334F /* LaunchScreen.storyboard */; };
 		4651DC4121A1E12300D7F732 /* ScreenBuffer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4651DC4021A1E12300D7F732 /* ScreenBuffer.swift */; };
 		4651DC4421A1E7D400D7F732 /* ScreenBufferSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4651DC4321A1E7D400D7F732 /* ScreenBufferSpec.swift */; };
+		4651DC4621A2894400D7F732 /* CommandProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4651DC4521A2894400D7F732 /* CommandProcessor.swift */; };
+		4651DC4821A28C3800D7F732 /* StreamWriter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4651DC4721A28C3800D7F732 /* StreamWriter.swift */; };
+		4651DC4A21A290AE00D7F732 /* InteractionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4651DC4921A290AE00D7F732 /* InteractionHandler.swift */; };
+		4651DC4C21A2911A00D7F732 /* ScreenBufferProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4651DC4B21A2911A00D7F732 /* ScreenBufferProtocol.swift */; };
+		4651DC4E21A291DA00D7F732 /* InteractionHandlerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4651DC4D21A291DA00D7F732 /* InteractionHandlerProtocol.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +47,11 @@
 		46078DD021A1D5BD0084334F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4651DC4021A1E12300D7F732 /* ScreenBuffer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenBuffer.swift; sourceTree = "<group>"; };
 		4651DC4321A1E7D400D7F732 /* ScreenBufferSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenBufferSpec.swift; sourceTree = "<group>"; };
+		4651DC4521A2894400D7F732 /* CommandProcessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommandProcessor.swift; sourceTree = "<group>"; };
+		4651DC4721A28C3800D7F732 /* StreamWriter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreamWriter.swift; sourceTree = "<group>"; };
+		4651DC4921A290AE00D7F732 /* InteractionHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InteractionHandler.swift; sourceTree = "<group>"; };
+		4651DC4B21A2911A00D7F732 /* ScreenBufferProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenBufferProtocol.swift; sourceTree = "<group>"; };
+		4651DC4D21A291DA00D7F732 /* InteractionHandlerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InteractionHandlerProtocol.swift; sourceTree = "<group>"; };
 		73D00DD269ABC033B402153B /* Pods-MiniTermTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MiniTermTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MiniTermTests/Pods-MiniTermTests.debug.xcconfig"; sourceTree = "<group>"; };
 		76C608A921D52B58975A69EB /* Pods_MiniTerm.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MiniTerm.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		78795FFD745D2A3A8D018A3A /* Pods-MiniTerm.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MiniTerm.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MiniTerm/Pods-MiniTerm.debug.xcconfig"; sourceTree = "<group>"; };
@@ -103,7 +113,7 @@
 			isa = PBXGroup;
 			children = (
 				4651DC3F21A1DFD900D7F732 /* AppDelegate */,
-				4651DC3D21A1DD7000D7F732 /* Utils */,
+				4651DC3D21A1DD7000D7F732 /* Protocols */,
 				4651DC3C21A1DD6900D7F732 /* Logic */,
 				4651DC3A21A1DD5900D7F732 /* UI */,
 			);
@@ -131,15 +141,20 @@
 			isa = PBXGroup;
 			children = (
 				4651DC4021A1E12300D7F732 /* ScreenBuffer.swift */,
+				4651DC4521A2894400D7F732 /* CommandProcessor.swift */,
+				4651DC4921A290AE00D7F732 /* InteractionHandler.swift */,
 			);
 			path = Logic;
 			sourceTree = "<group>";
 		};
-		4651DC3D21A1DD7000D7F732 /* Utils */ = {
+		4651DC3D21A1DD7000D7F732 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
+				4651DC4721A28C3800D7F732 /* StreamWriter.swift */,
+				4651DC4B21A2911A00D7F732 /* ScreenBufferProtocol.swift */,
+				4651DC4D21A291DA00D7F732 /* InteractionHandlerProtocol.swift */,
 			);
-			path = Utils;
+			path = Protocols;
 			sourceTree = "<group>";
 		};
 		4651DC3E21A1DD9800D7F732 /* Terminal */ = {
@@ -342,9 +357,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4651DC4621A2894400D7F732 /* CommandProcessor.swift in Sources */,
 				4651DC4121A1E12300D7F732 /* ScreenBuffer.swift in Sources */,
 				46078DBC21A1D5BC0084334F /* TerminalViewController.swift in Sources */,
+				4651DC4821A28C3800D7F732 /* StreamWriter.swift in Sources */,
 				46078DBA21A1D5BC0084334F /* AppDelegate.swift in Sources */,
+				4651DC4A21A290AE00D7F732 /* InteractionHandler.swift in Sources */,
+				4651DC4E21A291DA00D7F732 /* InteractionHandlerProtocol.swift in Sources */,
+				4651DC4C21A2911A00D7F732 /* ScreenBufferProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
